@@ -1,0 +1,38 @@
+﻿@using FinalExam.ViewModels.Account
+@model RegisterVM
+<div style="padding-top:200px">
+    <form asp-controller="Account" asp-action="Register" method="post">
+        <div class="mb-3">
+            <label for="Username" class="form-label">Username</label>
+            <input asp-for=@Model.Username type="text" class="form-control" id="Username">
+            <span class="text-danger" asp-validation-for="@Model.Username"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Name" class="form-label">Name</label>
+            <input asp-for=@Model.Name type="text" class="form-control" id="Name">
+            <span class="text-danger" asp-validation-for="@Model.Name"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Surname" class="form-label">Surname</label>
+            <input asp-for=@Model.Surname type="text" class="form-control" id="Surname">
+            <span class="text-danger" asp-validation-for="@Model.Surname"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Email" class="form-label">Email</label>
+            <input asp-for=@Model.Email type="text" class="form-control" id="Email">
+            <span class="text-danger" asp-validation-for="@Model.Email"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Password" class="form-label">Password</label>
+            <input asp-for=@Model.Password type="text" class="form-control" id="Password">
+            <span class="text-danger" asp-validation-for="@Model.Password"></span>
+        </div>
+        <div class="mb-3">
+            <label for="ConfirmPassword" class="form-label">Confirm Password</label>
+            <input asp-for=@Model.ConfirmPassword type="text" class="form-control" id="ConfirmPassword">
+            <span class="text-danger" asp-validation-for="@Model.ConfirmPassword"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

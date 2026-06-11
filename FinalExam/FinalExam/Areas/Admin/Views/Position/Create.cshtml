@@ -1,0 +1,12 @@
+﻿@using FinalExam.Areas.Admin.ViewModels.Position
+@model CreatePositionVM
+<div>
+    <form asp-controller="Position" asp-action="Create" method="post">
+        <div class="mb-3">
+            <label for="Name" class="form-label">Name</label>
+            <input asp-for=@Model.Name type="text" class="form-control" id="Name">
+            <span class="text-danger" asp-validation-for="@Model.Name"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,21 @@
+﻿@model Member
+<div>
+	<div>
+		<h1 class="text-primary">Detail Page</h1>
+	</div>
+	<div>
+		<p>Name:</p><p>@Model.Name</p>
+	</div>
+	<div>
+		<p>Surname:</p><p>@Model.Surname</p>
+	</div>
+	<div>
+		<p>Description:</p><p>@Model.Description</p>
+	</div>
+	<div>
+		<p>Position:</p><p>@Model.Position.Name</p>
+	</div>
+	<div>
+		<p>Image:</p><img height="100px" width="100px" src="/uploads/members/@Model.ImageUrl"/>
+	</div>
+</div>

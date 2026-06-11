@@ -1,0 +1,37 @@
+﻿@using FinalExam.Areas.Admin.ViewModels.Member
+@model UpdateMemberVM
+<div>
+    <form asp-controller="Member" asp-action="Update" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="Name" class="form-label">Name</label>
+            <input asp-for=@Model.Name type="text" class="form-control" id="Name">
+            <span class="text-danger" asp-validation-for="@Model.Name"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Surname" class="form-label">Surname</label>
+            <input asp-for=@Model.Surname type="text" class="form-control" id="Surname">
+            <span class="text-danger" asp-validation-for="@Model.Surname"></span>
+        </div>            <div class="mb-3">
+            <label for="Description" class="form-label">Description</label>
+            <input asp-for=@Model.Description type="text" class="form-control" id="Description">
+            <span class="text-danger" asp-validation-for="@Model.Description"></span>
+        </div>
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Positions</label>
+            <select asp-for="@Model.PositionId" class="form-select" id="inputGroupSelect01">
+                <option selected disabled>Choose...</option>
+                @foreach (Position position in ViewBag.Positions)
+                {
+                    <option value="@position.Id">@position.Name</option>
+                }
+            </select>
+            <span class="text-danger" asp-validation-for="@Model.PositionId"></span>
+        </div>
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupFile01">Upload Image</label>
+            <input asp-for=@Model.ImageFile type="file" class="form-control" id="inputGroupFile01">
+            <span class="text-danger" asp-validation-for="@Model.ImageFile"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

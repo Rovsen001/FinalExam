@@ -1,0 +1,58 @@
+﻿@model List<Member>
+<div>
+	<h1 class="text-primary">Members:</h1>
+	<a class="btn btn-primary" asp-controller="Member" asp-action="Create">Add Member</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">Description</th>
+                <th scope="col">Position</th>
+                <th scope="col">Image</th>
+                <th scope="col">Status</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Member member in Model)
+            {
+                <tr>
+                    <th scope="row">@member.Id</th>
+                    <td>@member.Name</td>
+                    <td>@member.Surname</td>
+                    <td>@member.Description</td>
+                    <td>@member.Position.Name</td>
+                    <td><img height="50px" width="50px" src="/uploads/members/@member.ImageUrl"/></td>
+                    <td>
+                        @if (!member.IsDeleted)
+                        {
+                            <p class="text-success">Active</p>
+                        }
+                        else
+                        {
+                            <p class="text-danger">Inactive</p>
+                        }
+                    </td>
+                    <td><a asp-controller="Member" asp-action="Update" asp-route-id="@member.Id" class="btn btn-warning">Update</a></td>
+                    <td>
+                        @if (!member.IsDeleted)
+                        {
+                            <form asp-controller="Member" asp-action="Delete" asp-route-id="@member.Id" method="post">
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form asp-controller="Member" asp-action="Restore" asp-route-id="@member.Id" method="post">
+                                <button class="btn btn-success">Restore</button>
+                            </form>
+                        }
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
